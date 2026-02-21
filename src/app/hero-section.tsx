@@ -71,15 +71,16 @@ export function HeroSection() {
 
       {/* ── Layer 3: Foreground cutout ────────────────────────────────── */}
       {/*
-        Anchored bottom-right; hidden below md so it never crowds the
-        text on narrow viewports. Scale origin is bottom-center so the
-        figure grows upward rather than floating away from its ground.
-        Width uses responsive Tailwind steps; next/image width/height
-        are the intrinsic aspect-ratio hint — CSS controls rendered size.
+        Container spans the full section height (inset-y-0) and the right
+        60 % of the section width. Using next/image `fill` + object-contain
+        + object-right-bottom lets the PNG scale to the largest size that
+        fits the container while keeping its aspect ratio and anchoring the
+        base of the figure to the bottom-right corner.
+        Hidden below md so narrow viewports stay text-only.
       */}
       <motion.div
         aria-hidden
-        className="pointer-events-none absolute bottom-0 right-0 hidden w-1/2 md:block lg:w-[45%]"
+        className="pointer-events-none absolute inset-y-0 right-0 hidden md:block md:w-[60%] lg:w-[55%]"
         style={{
           willChange: "transform",
           transformOrigin: "bottom center",
@@ -90,11 +91,10 @@ export function HeroSection() {
         <Image
           src="/images/hero-foreground.png"
           alt=""
-          width={600}
-          height={900}
-          className="h-auto w-full"
+          fill
+          className="object-contain object-right-bottom"
           priority
-          sizes="(max-width: 768px) 0vw, (max-width: 1024px) 50vw, 45vw"
+          sizes="(max-width: 768px) 0vw, (max-width: 1024px) 60vw, 55vw"
         />
       </motion.div>
 
