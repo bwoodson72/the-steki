@@ -1,26 +1,82 @@
 @import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  /* ── Spacing / shape ─────────────────────────────── */
+  --radius: 0.5rem;
+
+  /* ── Surface ─────────────────────────────────────── */
+  /* #F7F5F0 — warm off-white */
+  --background:         oklch(0.9703 0.0069 88.61);
+  /* #0F172A — dark navy slate */
+  --foreground:         oklch(0.2077 0.0399 265.77);
+
+  /* Cards sit on pure white so they lift off the warm background */
+  --card:               oklch(1 0 0);
+  --card-foreground:    oklch(0.2077 0.0399 265.77);
+
+  --popover:            oklch(1 0 0);
+  --popover-foreground: oklch(0.2077 0.0399 265.77);
+
+  /* ── Brand ───────────────────────────────────────── */
+  /* #0D5EAF — brand blue */
+  --primary:            oklch(0.4841 0.1475 254.13);
+  --primary-foreground: oklch(0.985 0 0);
+
+  /* ── Neutral scale (warm-tinted grays) ───────────── */
+  /* #E8E5DF */
+  --secondary:            oklch(0.9226 0.0086 84.50);
+  --secondary-foreground: oklch(0.2077 0.0399 265.77);
+
+  --muted:            oklch(0.9226 0.0086 84.50);
+  --muted-foreground: oklch(0.5510 0.0234 264.39);
+
+  --accent:            oklch(0.9226 0.0086 84.50);
+  --accent-foreground: oklch(0.2077 0.0399 265.77);
+
+  /* ── Utility ─────────────────────────────────────── */
+  --destructive: oklch(0.577 0.245 27.325);
+
+  /* #E8E5DF — warm-gray border */
+  --border: oklch(0.9226 0.0086 84.50);
+  --input:  oklch(0.9226 0.0086 84.50);
+  /* Focus ring inherits brand blue */
+  --ring:   oklch(0.4841 0.1475 254.13);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  body {
+    @apply bg-background text-foreground;
+  }
 }
