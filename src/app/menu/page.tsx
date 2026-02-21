@@ -1,4 +1,5 @@
 import { menuCategories } from "@/data/menu";
+import { formatEUR } from "@/lib/format/format-eur";
 
 export default function MenuPage() {
   return (
@@ -39,7 +40,7 @@ export default function MenuPage() {
                       <span className="text-sm text-muted-foreground">{item.description}</span>
                     </div>
                     <span className="shrink-0 text-sm font-medium text-foreground">
-                      €{item.priceEUR.toFixed(2)}
+                      {formatEUR(item.priceEUR)}
                     </span>
                   </li>
                 ))}
