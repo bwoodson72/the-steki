@@ -1,5 +1,6 @@
 import { menuCategories } from "@/data/menu";
 import { formatEUR } from "@/lib/format/format-eur";
+import { MenuSidebar } from "./menu-sidebar";
 
 export default function MenuPage() {
   return (
@@ -9,20 +10,9 @@ export default function MenuPage() {
       </h1>
 
       <div className="flex gap-16">
-        {/* Sidebar */}
-        <aside className="hidden w-40 shrink-0 sm:block">
-          <nav className="sticky top-24 flex flex-col gap-3">
-            {menuCategories.map((cat) => (
-              <a
-                key={cat.slug}
-                href={`#${cat.slug}`}
-                className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-              >
-                {cat.label}
-              </a>
-            ))}
-          </nav>
-        </aside>
+        <MenuSidebar
+          categories={menuCategories.map(({ slug, label }) => ({ slug, label }))}
+        />
 
         {/* Sections */}
         <div className="flex flex-1 flex-col gap-20">
