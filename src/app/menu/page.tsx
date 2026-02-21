@@ -18,13 +18,34 @@ export default function MenuPage() {
         <div className="flex flex-1 flex-col gap-20">
           {menuCategories.map((cat) => (
             <section key={cat.slug} id={cat.slug}>
-              <h2 className="mb-6 text-2xl font-semibold tracking-tight text-foreground">
-                {cat.label}
-              </h2>
 
+              {/* Section header band */}
+              <div
+                className="relative mb-6 h-44 overflow-hidden rounded-lg"
+                style={{
+                  backgroundImage: `url(${cat.sectionImage})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+              >
+                {/* Token-based overlay — bg-foreground at reduced opacity */}
+                <div className="absolute inset-0 bg-foreground/60" />
+
+                {/* Title sits above the overlay */}
+                <div className="absolute inset-0 flex items-end p-6">
+                  <h2 className="text-2xl font-semibold tracking-tight text-primary-foreground">
+                    {cat.label}
+                  </h2>
+                </div>
+              </div>
+
+              {/* Items list */}
               <ul className="flex flex-col divide-y divide-border">
                 {cat.items.map((item) => (
-                  <li key={item.name} className="flex items-start justify-between gap-6 py-5">
+                  <li
+                    key={item.name}
+                    className="flex items-start justify-between gap-6 py-5"
+                  >
                     <div className="flex flex-col gap-1">
                       <span className="font-medium text-foreground">{item.name}</span>
                       <span className="text-sm text-muted-foreground">{item.description}</span>
@@ -35,6 +56,7 @@ export default function MenuPage() {
                   </li>
                 ))}
               </ul>
+
             </section>
           ))}
         </div>
