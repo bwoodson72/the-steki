@@ -91,6 +91,68 @@ export default function Home() {
           ))}
         </ul>
       </section>
+
+      {/* ── Hours & Location ──────────────────────────────────────────── */}
+      <section className="border-t border-border bg-card">
+        <div className="mx-auto grid max-w-6xl gap-10 px-6 py-20 sm:grid-cols-2">
+
+          <div>
+            <h2 className="mb-5 text-2xl font-semibold tracking-tight text-foreground">
+              Hours
+            </h2>
+            <dl className="flex flex-col gap-2 text-sm">
+              {[
+                { day: "Monday – Friday", hours: "7:00 – 22:00" },
+                { day: "Saturday",        hours: "8:00 – 23:00" },
+                { day: "Sunday",          hours: "8:30 – 21:00" },
+              ].map(({ day, hours }) => (
+                <div key={day} className="flex justify-between gap-4">
+                  <dt className="text-muted-foreground">{day}</dt>
+                  <dd className="font-medium text-foreground">{hours}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+
+          <div>
+            <h2 className="mb-5 text-2xl font-semibold tracking-tight text-foreground">
+              Location
+            </h2>
+            <address className="flex flex-col gap-1 text-sm not-italic text-muted-foreground">
+              <span className="font-medium text-foreground">Nea Ionia Coffee</span>
+              <span>14 Agiou Meletiou</span>
+              <span>Nea Ionia, Athens 142 31</span>
+              <span>Greece</span>
+            </address>
+            <p className="mt-4 text-sm text-muted-foreground">
+              Two blocks from Nea Ionia metro station, ground floor.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ── About Snapshot ────────────────────────────────────────────── */}
+      <section className="mx-auto max-w-6xl px-6 py-20">
+        <div className="max-w-prose">
+          <h2 className="mb-4 text-2xl font-semibold tracking-tight text-foreground">
+            A neighbourhood place since 2013.
+          </h2>
+          <p className="text-base leading-relaxed text-muted-foreground">
+            We opened on a quiet corner of Nea Ionia with a single espresso
+            machine and a shared table. Over a decade later the machine has
+            changed, the table hasn't. Everything we serve is roasted nearby,
+            brewed to order, and meant to be drunk without rushing.
+          </p>
+          <Link
+            href="/about"
+            className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-primary underline-offset-4 hover:underline"
+          >
+            Read our story →
+          </Link>
+        </div>
+      </section>
+
     </main>
   );
 }
