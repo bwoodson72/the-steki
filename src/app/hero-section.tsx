@@ -8,10 +8,11 @@ import { Button } from "@/components/ui/button";
 import { usePrefersReducedMotion } from "@/lib/a11y/use-prefers-reduced-motion";
 
 // ─── Parallax constants ───────────────────────────────────────────────────────
-// How far each layer travels as the hero scrolls off screen (px).
-// Background extends by BG_BLEED below its container so the bottom
+// Each layer extends below its container by its BLEED value so the bottom
 // edge is never revealed as translateY goes negative.
-const BG_BLEED = 30; // must equal |min bgY| at scrollYProgress=1
+// Foreground travels twice as far as background → stronger depth effect.
+const BG_BLEED = 30; // background travels 30 px (slow)
+const FG_BLEED = 60; // foreground travels 60 px (fast)
 
 export function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -22,12 +23,11 @@ export function HeroSection() {
     offset: ["start start", "end start"],
   });
 
-  // Background slides up slightly (slower than scroll) → classic parallax.
+  // Background slides up slowly → classic parallax.
   const bgY = useTransform(scrollYProgress, [0, 1], [0, -BG_BLEED]);
 
-  // Foreground moves a little less and gains a hair of scale at the root.
-  const fgY     = useTransform(scrollYProgress, [0, 1], [0, -10]);
-  const fgScale = useTransform(scrollYProgress, [0, 1], [1, 1.02]);
+  // Foreground slides up faster → sits in front and creates depth.
+  const fgY = useTransform(scrollYProgress, [0, 1], [0, -FG_BLEED]);
 
   return (
     <section
@@ -67,34 +67,32 @@ export function HeroSection() {
         block is readable against the warm-white token colour. Right side
         stays clear so the foreground cutout reads against the photo.
       */}
-      <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/50 to-transparent" />
+      <div className="absolute inset-0 bg-linear-to-r from-background/90 via-background/50 to-transparent" />
 
       {/* ── Layer 3: Foreground cutout ────────────────────────────────── */}
       {/*
-        Container spans the full section height (inset-y-0) and the right
-        60 % of the section width. Using next/image `fill` + object-contain
-        + object-right-bottom lets the PNG scale to the largest size that
-        fits the container while keeping its aspect ratio and anchoring the
-        base of the figure to the bottom-right corner.
-        Hidden below md so narrow viewports stay text-only.
+        Fills the entire hero. Extends FG_BLEED px below the section so
+        the bottom edge stays hidden at max translateY. Moving faster than
+        the background (FG_BLEED > BG_BLEED) creates the depth illusion.
+        object-contain preserves the PNG's transparency and aspect ratio.
       */}
       <motion.div
         aria-hidden
-        className="pointer-events-none absolute inset-y-0 right-0 hidden md:block md:w-[60%] lg:w-[55%]"
+        className="pointer-events-none absolute inset-x-0"
         style={{
+          top: 0,
+          height: `calc(100% + ${FG_BLEED}px)`,
           willChange: "transform",
-          transformOrigin: "bottom center",
-          y:     reducedMotion ? 0 : fgY,
-          scale: reducedMotion ? 1 : fgScale,
+          y: reducedMotion ? 0 : fgY,
         }}
       >
         <Image
           src="/images/hero-foreground.png"
           alt=""
           fill
-          className="object-contain object-right-bottom"
+          className="object-contain object-bottom"
           priority
-          sizes="(max-width: 768px) 0vw, (max-width: 1024px) 60vw, 55vw"
+          sizes="100vw"
         />
       </motion.div>
 
