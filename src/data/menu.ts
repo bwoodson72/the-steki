@@ -99,7 +99,7 @@ export const menuCategories: MenuCategory[] = [
         name: "Freddo Cappuccino",
         description:
           "Freddo espresso topped with cold-frothed whole milk. The quintessential Greek summer coffee.",
-        priceEUR: 3.5,
+        priceEUR: 3.8,
       },
       {
         name: "Frappe",
@@ -155,7 +155,7 @@ export const menuCategories: MenuCategory[] = [
         name: "Bougatsa",
         description:
           "Flaky filo pastry filled with warm semolina custard, finished with powdered sugar and cinnamon.",
-        priceEUR: 3.5,
+        priceEUR: 4.2,
       },
       {
         name: "Melomakarona",
@@ -180,7 +180,7 @@ export const menuCategories: MenuCategory[] = [
         name: "Spanakopita",
         description:
           "Spinach and feta wrapped in layers of crisp filo, baked fresh throughout the day.",
-        priceEUR: 3.5,
+        priceEUR: 3.9,
       },
       {
         name: "Tyropita",
