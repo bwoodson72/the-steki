@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { LayoutList, Menu, X } from "lucide-react";
+import { usePrefersReducedMotion } from "@/lib/a11y/use-prefers-reduced-motion";
 import { cn } from "@/lib/utils";
 import {
   Sheet,
@@ -26,12 +27,13 @@ export function SiteHeader() {
   const [navOpen, setNavOpen] = useState(false);
   const [sheetOpen, setSheetOpen] = useState(false);
   const onMenuPage = pathname === "/menu";
+  const reducedMotion = usePrefersReducedMotion();
 
   function handleCategorySelect(slug: string) {
     setSheetOpen(false);
     // Small delay lets the sheet begin closing before the scroll fires,
     // so the layout shift doesn't affect the scroll target calculation.
-    setTimeout(() => scrollToSection(slug), 150);
+    setTimeout(() => scrollToSection(slug, reducedMotion ? "auto" : "smooth"), 150);
   }
 
   return (
