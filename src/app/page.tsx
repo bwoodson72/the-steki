@@ -1,8 +1,9 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { featuredItems } from "@/data/featured";
-import { formatEUR } from "@/lib/format/format-eur";
 import { HeroSection } from "./hero-section";
+import { PopularPicks } from "./popular-picks";
 
 export default function Home() {
   return (
@@ -26,33 +27,11 @@ export default function Home() {
           </Button>
         </div>
 
-        <ul className="grid gap-4 sm:grid-cols-3">
-          {featuredItems.map((item) => (
-            <li
-              key={item.name}
-              className="flex flex-col gap-3 rounded-lg border border-border bg-card p-6"
-            >
-              <span className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
-                {item.categoryLabel}
-              </span>
-
-              <div className="flex flex-1 flex-col gap-1">
-                <span className="font-semibold text-foreground">{item.name}</span>
-                <span className="text-sm leading-relaxed text-muted-foreground">
-                  {item.description}
-                </span>
-              </div>
-
-              <span className="mt-auto text-sm font-semibold text-foreground">
-                {formatEUR(item.priceEUR)}
-              </span>
-            </li>
-          ))}
-        </ul>
+        <PopularPicks items={featuredItems} />
       </section>
 
       {/* ── Hours & Location ──────────────────────────────────────────── */}
-      <section className="border-t border-border bg-card">
+      <section className="border-t border-border bg-gradient-to-br from-amber-50/60 via-card to-card">
         <div className="mx-auto grid max-w-6xl gap-10 px-6 py-20 sm:grid-cols-2">
 
           <div>
@@ -93,22 +72,32 @@ export default function Home() {
 
       {/* ── About Snapshot ────────────────────────────────────────────── */}
       <section className="mx-auto max-w-6xl px-6 py-20">
-        <div className="max-w-prose">
-          <h2 className="mb-4 text-2xl font-semibold tracking-tight text-foreground">
-            A neighbourhood place since 2013.
-          </h2>
-          <p className="text-base leading-relaxed text-muted-foreground">
-            We opened on a quiet corner of Nea Ionia with a single espresso
-            machine and a shared table. Over a decade later the machine has
-            changed, the table hasn't. Everything we serve is roasted nearby,
-            brewed to order, and meant to be drunk without rushing.
-          </p>
-          <Link
-            href="/about"
-            className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-primary underline-offset-4 hover:underline"
-          >
-            Read our story →
-          </Link>
+        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+          <div className="max-w-prose">
+            <h2 className="mb-4 text-2xl font-semibold tracking-tight text-foreground">
+              A neighbourhood place since 2013.
+            </h2>
+            <p className="text-base leading-relaxed text-muted-foreground">
+              We opened on a quiet corner of Nea Ionia with a single espresso
+              machine and a shared table. Over a decade later the machine has
+              changed, the table hasn't. Everything we serve is roasted nearby,
+              brewed to order, and meant to be drunk without rushing.
+            </p>
+            <Link
+              href="/about"
+              className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-primary underline-offset-4 hover:underline"
+            >
+              Read our story →
+            </Link>
+          </div>
+          <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
+            <Image
+              src="/images/cafe.webp"
+              alt="Inside Nea Ionia Coffee"
+              fill
+              className="object-cover"
+            />
+          </div>
         </div>
       </section>
 

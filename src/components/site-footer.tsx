@@ -8,7 +8,7 @@ const NAV_LINKS = [
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-border bg-card">
+    <footer className="border-t border-border bg-card w-full">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 px-6 py-10 sm:flex-row sm:justify-between">
 
         <div className="flex flex-col items-center gap-1 text-center sm:items-start sm:text-left">

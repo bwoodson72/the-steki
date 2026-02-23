@@ -4,6 +4,7 @@ import { menuCategories, type CategorySlug, type MenuItem } from "./menu";
 export type FeaturedItem = MenuItem & {
   categorySlug: CategorySlug;
   categoryLabel: string;
+  sectionImage: string;
 };
 
 /**
@@ -22,7 +23,7 @@ function resolveFeatured(): FeaturedItem[] {
     if (!cat) return [];
     const item = cat.items.find((i) => i.name === itemName);
     if (!item) return [];
-    return [{ ...item, categorySlug, categoryLabel: cat.label }];
+    return [{ ...item, categorySlug, categoryLabel: cat.label, sectionImage: cat.sectionImage }];
   });
 }
 

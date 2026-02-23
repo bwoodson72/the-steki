@@ -5,9 +5,7 @@ import { MenuSidebar } from "./menu-sidebar";
 export default function MenuPage() {
   return (
     <main className="mx-auto max-w-6xl px-6 py-20">
-      <h1 className="mb-12 text-4xl font-semibold tracking-tight text-foreground">
-        Menu
-      </h1>
+      <h1 className="type-h1 mb-12 text-foreground">Menu</h1>
 
       <div className="flex gap-16">
         <MenuSidebar
@@ -29,11 +27,11 @@ export default function MenuPage() {
                 }}
               >
                 {/* Token-based overlay — bg-foreground at reduced opacity */}
-                <div className="absolute inset-0 bg-foreground/60" />
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/30 to-foreground/10" />
 
                 {/* Title sits above the overlay */}
                 <div className="absolute inset-0 flex items-end p-6">
-                  <h2 className="text-2xl font-semibold tracking-tight text-primary-foreground">
+                  <h2 className="type-h2 text-primary-foreground">
                     {cat.label}
                   </h2>
                 </div>
