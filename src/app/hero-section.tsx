@@ -24,16 +24,18 @@ export function HeroSection() {
         aria-hidden
         className="absolute inset-0 min-h-[calc(100vh+88px)]"
         style={{
+          willChange: reducedMotion ? "auto" : "transform",
           y: reducedMotion ? 0 : bgY,
         }}
       >
         <Image
-          src="/images/hero-background.webp"
+          src="/images/hero-background.avif"
           alt=""
           fill
           className="object-cover object-center"
           priority
           fetchPriority="high"
+          quality={55}
           sizes="100vw"
         />
       </motion.div>
@@ -46,6 +48,7 @@ export function HeroSection() {
         ref={textRef}
         className="relative z-10 mx-auto w-full max-w-6xl px-6 py-20"
         style={{
+          willChange: reducedMotion ? "auto" : "transform",
           y: reducedMotion ? 0 : textY,
         }}
       >
@@ -72,7 +75,7 @@ export function HeroSection() {
               asChild
               size="lg"
               variant="outline"
-              className="border-background bg-secondary-foreground/10 text-background backdrop-blur-sm hover:bg-background/20"
+              className="border-background bg-background text-foreground backdrop-blur-sm hover:bg-background/20"
             >
               <Link href="/about">Our Story</Link>
             </Button>
@@ -86,15 +89,17 @@ export function HeroSection() {
         aria-hidden
         className="pointer-events-none absolute inset-x-0 -top-1/2 h-[200%]"
         style={{
+          willChange: reducedMotion ? "auto" : "transform",
           y: reducedMotion ? 0 : fgY,
         }}
       >
         <Image
-          src="/images/hero-foreground.webp"
+          src="/images/hero-foreground.avif"
           alt=""
           fill
           className="object-cover object-center"
-          loading="eager"
+          loading="lazy"
+          quality={75}
           sizes="100vw"
         />
       </motion.div>

@@ -24,15 +24,16 @@ export default function MenuPage() {
                   alt=""
                   fill
                   className="object-cover object-center"
-                  sizes="(min-width: 1024px) 720px, 100vw"
+                  loading="lazy"
+                  sizes="calc(100vw - 3rem)"
                 />
 
                 {/* Token-based overlay — bg-foreground at reduced opacity */}
-                <div className="absolute inset-0 bg-foreground/60" />
+                <div className="absolute inset-0 bg-foreground/40" />
 
                 {/* Title sits above the overlay */}
                 <div className="absolute inset-0 flex items-end p-6">
-                  <h2 className="type-h2 text-primary-foreground">{cat.label}</h2>
+                  <h2 className="type-h2 text-primary-foreground text-shadow-md text-shadow-foreground">{cat.label}</h2>
                 </div>
               </div>
 

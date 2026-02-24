@@ -1,7 +1,5 @@
 @import "tailwindcss";
-@import "tw-animate-css";
 @import "shadcn/tailwind.css";
-@import "lenis/dist/lenis.css";
 
 @theme inline {
   --color-background: var(--background);
@@ -76,6 +74,30 @@
   --font-wordmark: var(--font-display);
 }
 
+/* ── Inlined from lenis/dist/lenis.css ───────────────────────────────── */
+@layer base {
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  .lenis.lenis-smooth iframe {
+    pointer-events: none;
+  }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -83,6 +105,47 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* ── Inlined from tw-animate-css (only classes used in the project) ───── */
+@keyframes enter {
+  from { opacity: var(--tw-enter-opacity, 1); transform: translate3d(var(--tw-enter-translate-x, 0), var(--tw-enter-translate-y, 0), 0) scale3d(var(--tw-enter-scale, 1), var(--tw-enter-scale, 1), var(--tw-enter-scale, 1)) rotate(var(--tw-enter-rotate, 0)); }
+}
+@keyframes exit {
+  to { opacity: var(--tw-exit-opacity, 1); transform: translate3d(var(--tw-exit-translate-x, 0), var(--tw-exit-translate-y, 0), 0) scale3d(var(--tw-exit-scale, 1), var(--tw-exit-scale, 1), var(--tw-exit-scale, 1)) rotate(var(--tw-exit-rotate, 0)); }
+}
+
+@layer utilities {
+  .animate-in {
+    animation-name: enter;
+    animation-duration: var(--tw-duration, 150ms);
+    --tw-enter-opacity: initial;
+    --tw-enter-scale: initial;
+    --tw-enter-rotate: initial;
+    --tw-enter-translate-x: initial;
+    --tw-enter-translate-y: initial;
+  }
+  .animate-out {
+    animation-name: exit;
+    animation-duration: var(--tw-duration, 150ms);
+    --tw-exit-opacity: initial;
+    --tw-exit-scale: initial;
+    --tw-exit-rotate: initial;
+    --tw-exit-translate-x: initial;
+    --tw-exit-translate-y: initial;
+  }
+  .fade-in-0 { --tw-enter-opacity: 0; }
+  .fade-out-0 { --tw-exit-opacity: 0; }
+  .slide-in-from-right { --tw-enter-translate-x: 100%; }
+  .slide-in-from-left { --tw-enter-translate-x: -100%; }
+  .slide-out-to-right { --tw-exit-translate-x: 100%; }
+  .slide-out-to-left { --tw-exit-translate-x: -100%; }
+  .slide-in-from-top { --tw-enter-translate-y: -100%; }
+  .slide-out-to-top { --tw-exit-translate-y: -100%; }
+  .slide-in-from-bottom { --tw-enter-translate-y: 100%; }
+  .slide-out-to-bottom { --tw-exit-translate-y: 100%; }
+  .duration-300 { --tw-duration: 300ms; }
+  .duration-500 { --tw-duration: 500ms; }
 }
 
 /* Typography tokens (Option 3: soft + welcoming)

@@ -92,7 +92,7 @@ export default function Home() {
           </div>
           <div className="relative aspect-4/3 overflow-hidden rounded-xl">
             <Image
-              src="/images/cafe.webp"
+              src="/images/cafe.avif"
               alt="Inside Nea Ionia Coffee"
               fill
               className="object-cover"

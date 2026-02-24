@@ -24,6 +24,9 @@ export function PopularPicks({ items }: { items: FeaturedItem[] }) {
               alt={item.name}
               fill
               className="object-cover transition-transform duration-500 hover:scale-105"
+              loading="lazy"
+              quality={60}
+              sizes="(max-width: 640px) calc(100vw - 3rem), (max-width: 1024px) calc(50vw - 3rem), 368px"
             />
           </div>
 

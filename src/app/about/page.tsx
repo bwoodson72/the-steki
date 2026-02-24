@@ -36,14 +36,16 @@ export default function AboutPage() {
   return (
     <main>
       {/* ── Page header with optional image ───────────────────────────── */}
-      <div className="relative flex h-56 items-end bg-muted sm:h-72">
+      <div className="relative flex h-56 items-end sm:h-72">
         <Image
-          src="/images/cafe.webp"
-          alt=""
-          fill
-          className="object-cover"
-          sizes="100vw"
-          priority={false}
+            src="/images/cafe.avif"
+            alt=""
+            fill
+            className="object-cover object-[center_30%]"
+            priority
+            fetchPriority="high"
+            quality={45}
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1152px"
         />
 
         {/* Overlay always rendered; image absent → shows solid muted tone */}
