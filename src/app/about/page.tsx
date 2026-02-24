@@ -49,7 +49,7 @@ export default function AboutPage() {
         />
 
         {/* Overlay always rendered; image absent → shows solid muted tone */}
-        <div className="absolute inset-0 bg-foreground/50" />
+        <div className="absolute inset-0 bg-foreground/40" />
         <div className="relative mx-auto w-full max-w-6xl px-6 pb-8">
           <h1 className="type-h1 text-primary-foreground">Since 2013</h1>
         </div>
@@ -63,7 +63,7 @@ export default function AboutPage() {
           <div className="flex flex-col gap-16">
             {SECTIONS.map(({ id, heading, body }) => (
               <section key={id} id={id}>
-                <h2 className="mb-5 type-h2 text-foreground">
+                <h2 className="mb-5 type-h2 text-foreground text-shadow-md text-shadow-foreground">
                   {heading}
                 </h2>
                 <div className="flex flex-col gap-4">
