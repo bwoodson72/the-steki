@@ -49,7 +49,7 @@ export default function AboutPage() {
         />
 
         {/* Overlay always rendered; image absent → shows solid muted tone */}
-        <div className="absolute inset-0 bg-foreground/40" />
+        <div className="absolute inset-0 bg-foreground/30" />
         <div className="relative mx-auto w-full max-w-6xl px-6 pb-8">
           <h1 className="type-h1 text-primary-foreground">Since 2013</h1>
         </div>
