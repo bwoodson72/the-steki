@@ -21,7 +21,7 @@ export function MenuSidebar({ categories }: { categories: SidebarCategory[] }) {
   }
 
   return (
-    <aside className="hidden w-40 shrink-0 sm:block">
+    <aside className="hidden w-40 shrink-0 sm:block xl:fixed xl:left-0">
       <nav className="sticky top-24 flex flex-col">
         {categories.map(({ slug, label }) => {
           const isActive = active === slug;
@@ -31,7 +31,7 @@ export function MenuSidebar({ categories }: { categories: SidebarCategory[] }) {
               type="button"
               onClick={() => handleClick(slug)}
               className={cn(
-                "border-l-2 py-2 pl-3 text-left text-sm font-medium transition-colors",
+                "border-l-2 py-2 pl-3 text-left text-sm font-medium transition-colors hover:cursor-pointer ",
                 isActive
                   ? "border-primary text-foreground"
                   : "border-transparent text-muted-foreground hover:text-foreground",

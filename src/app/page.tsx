@@ -31,7 +31,7 @@ export default function Home() {
       </section>
 
       {/* ── Hours & Location ──────────────────────────────────────────── */}
-      <section className="border-t border-border bg-gradient-to-br from-amber-50/60 via-card to-card">
+      <section className="border-t border-border bg-linear-to-br from-amber-50/60 via-card to-card">
         <div className="mx-auto grid max-w-6xl gap-10 px-6 py-20 sm:grid-cols-2">
 
           <div>
@@ -80,7 +80,7 @@ export default function Home() {
             <p className="text-base leading-relaxed text-muted-foreground">
               We opened on a quiet corner of Nea Ionia with a single espresso
               machine and a shared table. Over a decade later the machine has
-              changed, the table hasn't. Everything we serve is roasted nearby,
+              changed, the table hasn&#39;t. Everything we serve is roasted nearby,
               brewed to order, and meant to be drunk without rushing.
             </p>
             <Link
@@ -90,7 +90,7 @@ export default function Home() {
               Read our story →
             </Link>
           </div>
-          <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
+          <div className="relative aspect-4/3 overflow-hidden rounded-xl">
             <Image
               src="/images/cafe.webp"
               alt="Inside Nea Ionia Coffee"

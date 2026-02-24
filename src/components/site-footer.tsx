@@ -13,7 +13,7 @@ export function SiteFooter() {
 
         <div className="flex flex-col items-center gap-1 text-center sm:items-start sm:text-left">
           <p className="text-sm font-medium text-foreground">
-            © {new Date().getFullYear()} Nea Ionia Coffee
+            © {new Date().getFullYear()} The Steki
           </p>
           <p className="text-sm text-muted-foreground">Athens, Greece</p>
         </div>

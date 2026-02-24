@@ -43,9 +43,9 @@ export function SiteHeader() {
         {/* Wordmark */}
         <Link
           href="/"
-          className="text-lg font-semibold tracking-wide text-primary-foreground"
+          className="text-xl font-wordmark text-primary-foreground"
         >
-          Nea Ionia Coffee
+          The Steki
         </Link>
 
         {/* Desktop nav */}

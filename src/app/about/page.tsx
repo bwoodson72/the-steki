@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
@@ -6,7 +7,7 @@ const SECTIONS = [
     id: "our-story",
     heading: "Our Story",
     body: [
-      "Nea Ionia Coffee opened in 2013, started by two siblings who grew up watching their grandfather run a kafeneio on the same street. He kept it simple: Greek coffee, good company, a table where the morning could stretch as long as it needed to. That rhythm is still what we're after.",
+      "The Steki opened in 2013, started by two siblings who grew up watching their grandfather run a kafeneio on the same street. He kept it simple: Greek coffee, good company, a table where the morning could stretch as long as it needed to. That rhythm is still what we're after.",
       "When we took over the corner unit we spent three months stripping it back — plaster walls, a counter made from a single slab of oak, two small rooms that let the light come through in the afternoon. We brought in an espresso machine and kept the briki. Neither was going anywhere.",
       "Over a decade in, some of the same people still order the same thing. That feels like the right measure of success.",
     ],
@@ -35,20 +36,20 @@ export default function AboutPage() {
   return (
     <main>
       {/* ── Page header with optional image ───────────────────────────── */}
-      <div
-        className="relative flex h-56 items-end bg-muted sm:h-72"
-        style={{
-          backgroundImage: "url(/images/about.jpg)",
-          backgroundSize: "cover",
-          backgroundPosition: "center 30%",
-        }}
-      >
+      <div className="relative flex h-56 items-end bg-muted sm:h-72">
+        <Image
+          src="/images/cafe.webp"
+          alt=""
+          fill
+          className="object-cover"
+          sizes="100vw"
+          priority={false}
+        />
+
         {/* Overlay always rendered; image absent → shows solid muted tone */}
         <div className="absolute inset-0 bg-foreground/50" />
         <div className="relative mx-auto w-full max-w-6xl px-6 pb-8">
-          <h1 className="text-3xl font-semibold tracking-tight text-primary-foreground sm:text-4xl">
-            About
-          </h1>
+          <h1 className="type-h1 text-primary-foreground">Since 2013</h1>
         </div>
       </div>
 
@@ -60,7 +61,7 @@ export default function AboutPage() {
           <div className="flex flex-col gap-16">
             {SECTIONS.map(({ id, heading, body }) => (
               <section key={id} id={id}>
-                <h2 className="mb-5 text-xl font-semibold tracking-tight text-foreground">
+                <h2 className="mb-5 type-h2 text-foreground">
                   {heading}
                 </h2>
                 <div className="flex flex-col gap-4">
@@ -81,20 +82,20 @@ export default function AboutPage() {
           <aside className="hidden lg:block">
             <div className="sticky top-24 flex flex-col gap-6 rounded-lg border border-border bg-card p-6 text-sm">
               <div>
-                <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
+                <p className="type-caption text-muted-foreground">
                   Founded
                 </p>
                 <p className="mt-1 font-medium text-foreground">2013</p>
               </div>
               <div>
-                <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
+                <p className="type-caption text-muted-foreground">
                   Location
                 </p>
                 <p className="mt-1 font-medium text-foreground">Nea Ionia, Athens</p>
                 <p className="text-muted-foreground">14 Agiou Meletiou</p>
               </div>
               <div>
-                <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
+                <p className="type-caption text-muted-foreground">
                   Hours
                 </p>
                 <p className="mt-1 font-medium text-foreground">Mon–Fri 7:00–22:00</p>

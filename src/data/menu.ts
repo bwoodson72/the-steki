@@ -25,7 +25,7 @@ export const menuCategories: MenuCategory[] = [
   {
     slug: "espresso",
     label: "Espresso",
-    sectionImage: "/images/menu/espresso.jpg",
+    sectionImage: "/images/menu/espresso.webp",
     items: [
       {
         name: "Espresso",
@@ -56,7 +56,7 @@ export const menuCategories: MenuCategory[] = [
   {
     slug: "filter",
     label: "Filter Coffee",
-    sectionImage: "/images/menu/filter.jpg",
+    sectionImage: "/images/menu/greek-coffee.webp",
     items: [
       {
         name: "Greek Coffee",
@@ -87,7 +87,7 @@ export const menuCategories: MenuCategory[] = [
   {
     slug: "freddo",
     label: "Freddo & Frappe",
-    sectionImage: "/images/menu/freddo.jpg",
+    sectionImage: "/images/menu/freddo.webp",
     items: [
       {
         name: "Freddo Espresso",
@@ -112,7 +112,7 @@ export const menuCategories: MenuCategory[] = [
   {
     slug: "tea",
     label: "Tea & Infusions",
-    sectionImage: "/images/menu/tea.jpg",
+    sectionImage: "/images/menu/tea.webp",
     items: [
       {
         name: "Greek Mountain Tea",
@@ -143,7 +143,7 @@ export const menuCategories: MenuCategory[] = [
   {
     slug: "sweets",
     label: "Sweets",
-    sectionImage: "/images/menu/sweets.jpg",
+    sectionImage: "/images/menu/loukoumades.webp",
     items: [
       {
         name: "Loukoumades",
@@ -174,7 +174,7 @@ export const menuCategories: MenuCategory[] = [
   {
     slug: "savory",
     label: "Savory",
-    sectionImage: "/images/menu/savory.jpg",
+    sectionImage: "/images/menu/spanakopita.webp",
     items: [
       {
         name: "Spanakopita",
@@ -205,7 +205,7 @@ export const menuCategories: MenuCategory[] = [
   {
     slug: "breakfast",
     label: "Breakfast",
-    sectionImage: "/images/menu/breakfast.jpg",
+    sectionImage: "/images/menu/breakfast.webp",
     items: [
       {
         name: "Greek Yoghurt Bowl",
@@ -236,7 +236,7 @@ export const menuCategories: MenuCategory[] = [
   {
     slug: "cold-drinks",
     label: "Cold Drinks",
-    sectionImage: "/images/menu/cold-drinks.jpg",
+    sectionImage: "/images/menu/drinks.webp",
     items: [
       {
         name: "Fresh Lemonade",

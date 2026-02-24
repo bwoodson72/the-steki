@@ -13,7 +13,7 @@ export function HeroSection() {
   // Each layer gets its own parallax instance with different speeds
   const { ref: bgRef, y: bgY } = useParallax({ speed: 0.1, smooth: true });
   const { ref: textRef, y: textY } = useParallax({ speed: 0.3, smooth: true });
-  const { ref: fgRef, y: fgY } = useParallax({ speed: 0.5, smooth: true });
+  const { ref: fgRef, y: fgY } = useParallax({ speed: 0.2, smooth: true });
 
   return (
     <section className="relative flex min-h-screen items-center overflow-hidden">
@@ -22,9 +22,8 @@ export function HeroSection() {
       <motion.div
         ref={bgRef}
         aria-hidden
-        className="absolute inset-0"
+        className="absolute inset-0 min-h-[calc(100vh+88px)]"
         style={{
-          willChange: "transform",
           y: reducedMotion ? 0 : bgY,
         }}
       >
@@ -34,27 +33,28 @@ export function HeroSection() {
           fill
           className="object-cover object-center"
           priority
+          fetchPriority="high"
+          sizes="100vw"
         />
       </motion.div>
 
       {/* ── Layer 2: Gradient overlay ─────────────────────────────────── */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/25 to-transparent" />
+      <div className="absolute inset-0 bg-linear-to-r from-black/60 via-black/25 to-transparent" />
 
       {/* ── Layer 3: Hero text ─────────────────────────────────────────── */}
       <motion.div
         ref={textRef}
         className="relative z-10 mx-auto w-full max-w-6xl px-6 py-20"
         style={{
-          willChange: "transform",
           y: reducedMotion ? 0 : textY,
         }}
       >
         <div className="max-w-lg">
-          <h1 className="type-hero text-background">
+          <h1 className="type-hero text-background text-shadow-md text-shadow-foreground">
             Your daily Greek coffee ritual.
           </h1>
 
-          <p className="mt-6 text-base leading-relaxed text-background/80 sm:text-lg">
+          <p className="mt-6 text-base leading-relaxed text-background/80 sm:text-lg text-shadow-foreground text-shadow-md">
             Freddo classics, warm pies, and a calm corner of Nea Ionia—made for
             regulars.
           </p>
@@ -72,7 +72,7 @@ export function HeroSection() {
               asChild
               size="lg"
               variant="outline"
-              className="border-background/60 bg-transparent text-background hover:bg-background/10"
+              className="border-background bg-secondary-foreground/10 text-background backdrop-blur-sm hover:bg-background/20"
             >
               <Link href="/about">Our Story</Link>
             </Button>
@@ -86,7 +86,6 @@ export function HeroSection() {
         aria-hidden
         className="pointer-events-none absolute inset-x-0 -top-1/2 h-[200%]"
         style={{
-          willChange: "transform",
           y: reducedMotion ? 0 : fgY,
         }}
       >
@@ -95,7 +94,7 @@ export function HeroSection() {
           alt=""
           fill
           className="object-cover object-center"
-          priority
+          loading="eager"
           sizes="100vw"
         />
       </motion.div>

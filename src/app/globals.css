@@ -71,6 +71,9 @@
   --input:  oklch(0.9226 0.0086 84.50);
   /* Focus ring inherits brand blue */
   --ring:   oklch(0.4841 0.1475 254.13);
+
+  /* ── Wordmark ────────────────────────────────────── */
+  --font-wordmark: var(--font-display);
 }
 
 @layer base {
@@ -86,7 +89,22 @@
    Put these in utilities layer so they win in the cascade. */
 @layer utilities {
   .font-display {
-    font-family: var(--font-display);
+    font-family: var(--font-display), serif;
+  }
+
+  .font-wordmark {
+    font-family: var(--font-wordmark), serif;
+    letter-spacing: 0.1em;
+  }
+
+  .type-body {
+    @apply text-base leading-relaxed;
+    font-family: var(--font-sans), sans-serif;
+  }
+
+  .type-caption {
+    @apply text-xs font-medium uppercase tracking-widest;
+    font-family: var(--font-sans), sans-serif;
   }
 
   .type-h1 {
@@ -102,7 +120,7 @@
   }
 
   .type-hero {
-    @apply text-4xl sm:text-5xl lg:text-6xl font-semibold font-display;
+    @apply text-4xl sm:text-5xl lg:text-6xl font-bold font-display;
     letter-spacing: -0.01em;
     line-height: 1.1;
   }

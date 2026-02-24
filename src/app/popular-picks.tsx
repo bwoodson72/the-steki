@@ -11,8 +11,8 @@ export function PopularPicks({ items }: { items: FeaturedItem[] }) {
       {items.map((item, index) => (
         <motion.li
           key={item.name}
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, transform: "translateY(24px)" }}
+          whileInView={{ opacity: 1, transform: "translateY(0)" }}
           transition={{ duration: 0.45, delay: index * 0.1, ease: "easeOut" }}
           viewport={{ once: true }}
           className="flex flex-col overflow-hidden rounded-lg border border-border bg-card"
@@ -29,7 +29,7 @@ export function PopularPicks({ items }: { items: FeaturedItem[] }) {
 
           {/* Text */}
           <div className="flex flex-1 flex-col gap-3 px-5 pb-5 pt-4">
-            <span className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
+            <span className="type-caption text-muted-foreground">
               {item.categoryLabel}
             </span>
 
